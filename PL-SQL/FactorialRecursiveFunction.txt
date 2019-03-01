@@ -1,0 +1,22 @@
+create or replace function factorial(x number)
+return number is 
+fact number;
+begin
+	if x=0 then
+		fact:=1;
+	else
+		fact:=x*factorial(x-1);
+	end if;
+return fact;
+end;
+/
+
+declare
+num number;
+fact number;
+begin
+num:=6;
+fact:=factorial(num);
+dbms_output.put_line('Factorial of '|| num || ' is ' || fact);
+end;
+/
